@@ -92,7 +92,7 @@
             font-size: clamp(1.2rem, 4vw, 3rem);
             color: #fff;
             text-shadow: 0 0 15px rgba(0, 255, 136, 0.8), 2px 2px 0px #003300;
-            margin-bottom: 10px;
+            margin-bottom: 50px;
             letter-spacing: 2px;
             white-space: nowrap;
         }
@@ -234,6 +234,40 @@
         .classified-btn {
             opacity: 0.8;
         }
+        /* Security section styles */
+        .security-subtitle {
+            color: #ff3333;
+            border-color: #550000;
+            margin-top: 20px;
+        }
+        .security-card {
+            border-color: #550000 !important;
+        }
+        .security-card:hover {
+            border-color: #ff3333 !important;
+            box-shadow: 0 0 20px rgba(255, 51, 51, 0.15) !important;
+        }
+        .security-card::before {
+            background: #550000 !important;
+        }
+        .security-card:hover::before {
+            background: #ff3333 !important;
+        }
+        .security-title {
+            color: #ff3333 !important;
+        }
+        .security-tag {
+            color: #ff3333 !important;
+            border-color: #550000 !important;
+        }
+        .security-btn {
+            color: #ff3333 !important;
+            border-bottom-color: #550000 !important;
+        }
+        .security-btn:hover {
+            color: #fff !important;
+            border-bottom-color: #ff3333 !important;
+        }
     </style>
 </head>
 <body>
@@ -277,6 +311,44 @@
                         <span class="tag">LIVE</span>
                     </div>
                     <a href="javascript:void(0)" class="btn-link" onclick="openSecureChannel('B2B SCOUT SYSTEM')">ACCESS SYSTEM &gt;</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="subtitle security-subtitle">SECURITY OPERATIONS</div>
+        
+        <div class="showcase-grid">
+            <div class="project-card security-card">
+                <h3 class="project-title security-title"><i class="fas fa-eraser"></i> DIGITAL CLEANUP</h3>
+                <p class="project-desc">Bonifica della tua impronta digitale. Rimozione dati da database pubblici, data broker e vecchi account dimenticati.</p>
+                <div class="project-bottom-wrapper">
+                    <div>
+                        <span class="tag security-tag">PRIVACY</span>
+                        <span class="tag security-tag">GDPR</span>
+                    </div>
+                    <a href="javascript:void(0)" class="btn-link security-btn" onclick="openSecureChannel('DIGITAL CLEANUP')">SECURE WIPE &gt;</a>
+                </div>
+            </div>
+            <div class="project-card security-card">
+                <h3 class="project-title security-title"><i class="fas fa-radiation"></i> BREACH ALERT</h3>
+                <p class="project-desc">Monitoraggio proattivo delle violazioni. Verifico se le tue credenziali sono compromesse nel Dark Web e metto in sicurezza i tuoi account.</p>
+                <div class="project-bottom-wrapper">
+                    <div>
+                        <span class="tag security-tag">LEAK CHECK</span>
+                        <span class="tag security-tag">INTEL</span>
+                    </div>
+                    <a href="javascript:void(0)" class="btn-link security-btn" onclick="openSecureChannel('BREACH CHECK')">START SCAN &gt;</a>
+                </div>
+            </div>
+            <div class="project-card security-card">
+                <h3 class="project-title security-title"><i class="fas fa-shield-alt"></i> DEFENSE CONSULTING</h3>
+                <p class="project-desc">Consulenza difensiva personalizzata. Analisi vulnerabilità PC/Mobile e hardening dei sistemi contro attacchi mirati.</p>
+                <div class="project-bottom-wrapper">
+                    <div>
+                        <span class="tag security-tag">HARDENING</span>
+                        <span class="tag security-tag">AUDIT</span>
+                    </div>
+                    <a href="javascript:void(0)" class="btn-link security-btn" onclick="openSecureChannel('SECURITY AUDIT')">CONTACT OPS &gt;</a>
                 </div>
             </div>
         </div>
