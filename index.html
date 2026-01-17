@@ -32,7 +32,6 @@
             overflow-x: hidden;
         }
 
-        /* --- FX BACKGROUND --- */
         .cyber-grid {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background-image: 
@@ -43,7 +42,6 @@
             mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
         }
 
-        /* --- UI COMPONENTS --- */
         header {
             padding: 20px 5%;
             display: flex;
@@ -58,8 +56,23 @@
         .logo { 
             font-family: 'Orbitron'; font-weight: 900; font-size: 1.4rem; 
             letter-spacing: 2px; color: #fff; text-shadow: 0 0 20px var(--accent-glow);
+            position: relative;
+            display: inline-block;
+        }
+        .logo:hover {
+            animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+            color: var(--accent);
         }
         .logo span { color: var(--accent); }
+        
+        @keyframes glitch {
+            0% { transform: translate(0) }
+            20% { transform: translate(-2px, 2px) }
+            40% { transform: translate(-2px, -2px) }
+            60% { transform: translate(2px, 2px) }
+            80% { transform: translate(2px, -2px) }
+            100% { transform: translate(0) }
+        }
 
         .btn {
             background: transparent;
@@ -84,7 +97,6 @@
             box-shadow: 0 0 30px var(--accent-glow);
         }
 
-        /* --- HERO SECTION --- */
         .hero {
             padding: 100px 5% 60px;
             text-align: center;
@@ -113,7 +125,6 @@
             max-width: 650px; margin: 0 auto 50px;
         }
 
-        /* --- STATS GRID --- */
         .stats-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -133,7 +144,6 @@
         .stat-value { font-family: 'Orbitron'; font-size: 2rem; color: #fff; margin-bottom: 5px; }
         .stat-label { font-family: 'JetBrains Mono'; font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; }
 
-        /* --- TERMINAL DEMO --- */
         .demo-section {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
@@ -167,7 +177,33 @@
         .dot.y { background: #ffbd2e; }
         .dot.g { background: #27c93f; }
 
-        .terminal-body { padding: 20px; color: #a9b7c6; height: 300px; overflow: hidden; position: relative; }
+        .terminal-body { 
+            padding: 20px; 
+            color: #a9b7c6; 
+            height: 300px; 
+            overflow: hidden; 
+            position: relative;
+            overflow-anchor: none;
+        }
+        
+        .terminal-body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 2px;
+            background: rgba(0, 243, 255, 0.3);
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+            animation: scan 3s linear infinite;
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        @keyframes scan {
+            0% { top: 0; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+
         .terminal-body::after {
             content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 50px;
             background: linear-gradient(transparent, #080a0c);
@@ -180,7 +216,6 @@
         
         @keyframes fadeIn { to { opacity: 1; } }
 
-        /* --- LEGAL SECTION (REVISED) --- */
         .compliance-box {
             background: rgba(0, 243, 255, 0.03);
             border: 1px solid rgba(0, 243, 255, 0.1);
@@ -191,7 +226,7 @@
             position: relative;
         }
         .compliance-box::before {
-            content: "LEGAL NOTICE";
+            content: "TECH DEMO / PORTFOLIO";
             position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
             background: var(--bg-color);
             padding: 0 15px;
@@ -284,40 +319,56 @@
         </div>
     </section>
 
-    <!-- LEGAL SHIELD SECTION -->
     <section class="compliance-box">
         <div class="legal-text">
-            <strong style="color: #fff; display: block; margin-bottom: 10px;">CONFORMITÀ E TRATTAMENTO DATI</strong>
+            <strong style="color: #fff; display: block; margin-bottom: 10px;">NOTE LEGALI & DISCLAIMER</strong>
             <p>
-                B2B Scout non opera come Data Broker di liste precostituite. 
-                Il servizio è fornito esclusivamente in modalità <strong>"On-Demand OSINT"</strong> (Open Source Intelligence).
-                Il software effettua ricerche mirate su fonti pubblicamente accessibili (Siti Web Aziendali, Registri Pubblici) su specifico mandato del cliente B2B.
-            </p>
-            <br>
-            <p>
-                Tutti i dati forniti sono sottoposti a un rigoroso processo di <strong>Sanificazione GDPR</strong>: 
-                vengono automaticamente esclusi indirizzi email personali, cellulari privati e dati non pertinenti all'attività economica.
+                Questa pagina è una <strong>Tech Demo / Portfolio Project</strong> creata a scopo dimostrativo.
+                Non è un servizio commerciale attivo. Nessun dato reale viene salvato, trattato o venduto tramite questa interfaccia.
+                Il pulsante "Richiedi Accesso" apre semplicemente il tuo client di posta predefinito.
             </p>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 B2B Scout. Powered by <a href="https://manuopus.com" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none;">ManuOpus.com</a>.</p>
-        <p style="margin-top: 10px; opacity: 0.5;">Partita IVA: Su richiesta | Sede: Rovigo, IT</p>
+        <p>&copy; 2026 B2B Scout. Tech Demo.</p>
+        <p style="margin-top: 10px; opacity: 0.5;">Project Status: Prototype | Hosted on GitHub Pages</p>
     </footer>
 
     <script>
-        // --- TERMINAL ANIMATION ---
         const logs = [
-            { text: "Zaninelli Trasporti SRL... [ANALYZING]", type: "info" },
-            { text: "MATCH: 'Logistica', 'Flotta', 'Rovigo'", type: "success" },
-            { text: ">> LEAD ACQUIRED: info@zaninellitrasporti.it", type: "success" },
-            { text: "Trattoria Al Pomodoro... [ANALYZING]", type: "info" },
+            { text: "Demo Logistics Srl... [ANALYZING]", type: "info" },
+            { text: "MATCH: 'Logistica', 'Flotta', 'Verona'", type: "success" },
+            { text: ">> LEAD ACQUIRED: info@demologistics.it", type: "success" },
+            
+            { text: "Trattoria La Piazza... [ANALYZING]", type: "info" },
             { text: "DROP: Sector Mismatch (Ristorazione)", type: "error" },
-            { text: "Mario Rossi Blog... [ANALYZING]", type: "info" },
+            
+            { text: "Studio Legale Rossi... [ANALYZING]", type: "info" },
+            { text: "DROP: Sector Mismatch (Servizi Legali)", type: "error" },
+
+            { text: "Omega Spedizioni Spa... [ANALYZING]", type: "info" },
+            { text: "MATCH: 'International', 'Cargo', 'Milano'", type: "success" },
+            { text: ">> LEAD ACQUIRED: sales@omegaspedizioni.com", type: "success" },
+
+            { text: "Personal Blog Marco... [ANALYZING]", type: "info" },
             { text: "DROP: GDPR Risk (Personal Email)", type: "error" },
-            { text: "Logistica Veneta Group... [ANALYZING]", type: "info" },
-            { text: "MATCH: 'Spedizioni', 'Magazzino'", type: "success" }
+
+            { text: "Nova Plast Snc... [ANALYZING]", type: "info" },
+            { text: "DROP: Sector Mismatch (Produzione)", type: "error" },
+
+            { text: "Test Cargo Solutions... [ANALYZING]", type: "info" },
+            { text: "MATCH: 'Spedizioni', 'Magazzino'", type: "success" },
+            
+            { text: "Web Agency Creativa... [ANALYZING]", type: "info" },
+            { text: "DROP: No Match Keywords", type: "error" },
+            
+            { text: "Global Freight Ltd... [ANALYZING]", type: "info" },
+            { text: "MATCH: 'Import/Export', 'Customs'", type: "success" },
+            { text: ">> LEAD ACQUIRED: contact@globalfreight.demo", type: "success" },
+
+            { text: "Green Garden Store... [ANALYZING]", type: "info" },
+            { text: "DROP: Sector Mismatch (Retail)", type: "error" }
         ];
 
         const termBody = document.getElementById('term-logs');
@@ -334,12 +385,11 @@
             else if (log.type === 'error') div.className += ' log-error';
             else div.innerHTML = `<span class="cmd">></span> ${log.text}`;
             
-            div.innerText = div.innerText || log.text; // Fallback
+            div.innerText = div.innerText || log.text;
             
             termBody.appendChild(div);
             termBody.scrollTop = termBody.scrollHeight;
             
-            // Keep DOM clean
             if (termBody.children.length > 8) termBody.removeChild(termBody.children[0]);
             
             logIndex++;
@@ -348,7 +398,6 @@
 
         setTimeout(addLog, 1000);
 
-        // --- EMAIL OBFUSCATION ---
         function openMail() {
             const user = 'deltamk';
             const domain = 'protonmail.com';
@@ -360,4 +409,3 @@
 
 </body>
 </html>
-
